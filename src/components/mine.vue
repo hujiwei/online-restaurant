@@ -1,6 +1,42 @@
 <template>
   <div class="mine">
-    <div class=""></div>
+    <mt-header fixed title="我的中心"></mt-header>
+
+    <!-- 会员信息 -->
+    <div class="user-info clearfix">
+      <div class="avatar">
+        <img src="../assets/images/avatar.png" alt="">
+      </div>
+      <div class="info">
+        <div class="username">张先生</div>
+        <div class="userphone">18638038000</div>
+      </div>
+    </div>
+
+    <!-- 菜单列表 -->
+    <div class="menu-list">
+      <mt-cell to="/recharge" title="会员卡充值" is-link></mt-cell>
+      <mt-cell to="/orderlist" title="我的订单" is-link></mt-cell>
+      <mt-cell to="/about" title="关于" is-link></mt-cell>
+    </div>
+
+    <!-- 退出登录 -->
+    <div class="btn-wrap">
+      <mt-button class="logout-btn">退出登录</mt-button>
+    </div>
+
+    <!-- 底部导航 -->
+    <mt-tabbar fixed class="footer" v-model="selected">
+      <mt-tab-item id="index" href="#/index">
+        <i slot="icon" class="icon icon-home"></i> 首页
+      </mt-tab-item>
+      <mt-tab-item id="ordering" href="#/ordering">
+        <i slot="icon" class="icon icon-ordering"></i> 点餐
+      </mt-tab-item>
+      <mt-tab-item id="mine" href="#/mine">
+        <i slot="icon" class="icon icon-mine"></i> 我的
+      </mt-tab-item>
+    </mt-tabbar>
   </div>
 </template>
 
@@ -9,11 +45,41 @@ export default {
   name: 'mine',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      selected: this.$route.name
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+.mine{
+  padding: 40px 0 78px;
+  background-color: #fff;
+}
+.user-info{
+  padding: 20px;
+  .avatar{
+    width: 80px;
+    float: left;
+    margin-right: 10px;
+    img{
+      max-width: 100%;
+    }
+  }
+  .info{
+    float: left;
+    padding-top: 10px;
+    line-height: 30px;
+    font-size: 16px;
+    color: #000;
+  }
+}
+.btn-wrap{
+  padding: 80px 20px 0;
+  .logout-btn{
+    width: 100%;
+    background-color: #ffd006;
+    color: #000;
+  }
+}
 </style>

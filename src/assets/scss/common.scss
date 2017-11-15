@@ -70,6 +70,56 @@ p {
     height: 30px;
     background-position: 0 -120px;
   }
+  &.icon-recommend1{
+    width: 20px;
+    height: 20px;
+    background-position: 0 -100px;
+  }
+  &.icon-guodi{
+    width: 30px;
+    height: 30px;
+    background-position: -80px -120px;
+  }
+  &.icon-zhaopai{
+    width: 30px;
+    height: 30px;
+    background-position: -120px -120px;
+  }
+  &.icon-huncai{
+    width: 30px;
+    height: 30px;
+    background-position: -160px -120px;
+  }
+  &.icon-sucai{
+    width: 30px;
+    height: 30px;
+    background-position: -200px -120px;
+  }
+  &.icon-jiuyin{
+    width: 30px;
+    height: 30px;
+    background-position: -240px -120px;
+  }
+  &.icon-qita{
+    width: 30px;
+    height: 30px;
+    background-position: -280px -120px;
+  }
+  &.icon-cart{
+    width: 30px;
+    height: 30px;
+    background-position: -40px -160px;
+  }
+  &.icon-alipay{
+    width: 40px;
+    height: 40px;
+    background-position: -160px 0;
+  }
+  &.icon-weixinpay{
+    width: 40px;
+    height: 40px;
+    background-position: -200px 0;
+  }
 }
 .mint-header{
   background-color: #FFD006;
@@ -104,5 +154,22 @@ p {
       font-size: 14px;
       font-weight: bold;
     }
+  }
+}
+.ordering{
+  .mint-cell-wrapper{
+    background: none;
+  }
+  .sex-wrap{
+    .mint-cell{
+      float: left;
+      background: none;
+      .mint-cell-wrapper{
+        padding: 0;
+      }
+    }
+  }
+  .mint-field-core{
+    font-size: 14px;
   }
 }
