@@ -1,9 +1,9 @@
 <template>
   <div class="pay">
     <mt-header fixed title="支付">
-      <router-link to="/ordering" slot="left">
+      <a href="javascript:history.go(-1);" slot="left">
         <mt-button icon="back"></mt-button>
-      </router-link>
+      </a>
     </mt-header>
 
     <!-- 支付金额 -->

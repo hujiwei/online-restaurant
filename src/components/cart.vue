@@ -124,7 +124,7 @@
         </i>
         <span>总计：￥50</span>
       </div>
-      <mt-button class="pay-btn">选好了</mt-button>
+      <mt-button class="pay-btn" @click="submitForm">选好了</mt-button>
     </div>
   </div>
 </template>
@@ -135,6 +135,11 @@ export default {
   data () {
     return {
       selected: this.$route.name,
+    }
+  },
+  methods: {
+    submitForm: function(){
+      this.$router.push('/pay')
     }
   }
 }

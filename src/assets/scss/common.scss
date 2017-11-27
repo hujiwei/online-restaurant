@@ -120,6 +120,16 @@ p {
     height: 40px;
     background-position: -200px 0;
   }
+  &.icon-weibo{
+    width: 30px;
+    height: 30px;
+    background-position: -80px -160px;
+  }
+  &.icon-weixin{
+    width: 30px;
+    height: 30px;
+    background-position: -120px -160px;
+  }
 }
 .mint-header{
   background-color: #FFD006;
@@ -171,5 +181,20 @@ p {
   }
   .mint-field-core{
     font-size: 14px;
+  }
+}
+.login{
+  .mint-cell-wrapper{
+    background: none;
+  }
+  .mint-field-core{
+    background: none;
+    color: #fff;
+  }
+  input::-webkit-input-placeholder{
+    color: #fff;
+  }
+  .mint-field-other{
+    right: -10px;
   }
 }

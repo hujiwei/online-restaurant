@@ -22,7 +22,7 @@
 
     <!-- 退出登录 -->
     <div class="btn-wrap">
-      <mt-button class="logout-btn">退出登录</mt-button>
+      <mt-button class="logout-btn" @click="logout">退出登录</mt-button>
     </div>
 
     <!-- 底部导航 -->
@@ -41,11 +41,26 @@
 </template>
 
 <script>
+import { MessageBox, Toast } from 'mint-ui'
 export default {
   name: 'mine',
   data () {
     return {
       selected: this.$route.name
+    }
+  },
+  created () {
+    if(!!localStorage.getItem('user_id')){
+    }else{
+      this.$router.push('/login')
+    }
+  },
+  methods: {
+    logout: function(){
+      MessageBox.confirm('确定退出登录?').then(action => {
+        localStorage.clear();
+        this.$router.push('/login')
+      });
     }
   }
 }

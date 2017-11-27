@@ -5,21 +5,21 @@
     <!-- 轮播 -->
     <div class="swipe">
       <mt-swipe :auto="4000">
-        <!-- <mt-swipe-item v-for="ad in ads" :key="ad.id">
-          <a :href="ad.ad_link">
-            <img :src="ad.ad_file" alt="">
+        <mt-swipe-item v-for="banner in banners" :key="banner.id">
+          <a :href="banner.ad_link">
+            <img :src="banner.ad_file" :alt="banner.ad_name">
+          </a>
+        </mt-swipe-item>
+        <!-- <mt-swipe-item>
+          <a href="#">
+            <img src="../assets/images/banner1.png" alt="">
+          </a>
+        </mt-swipe-item>
+        <mt-swipe-item>
+          <a href="#">
+            <img src="../assets/images/banner1.png" alt="">
           </a>
         </mt-swipe-item> -->
-        <mt-swipe-item>
-          <a href="#">
-            <img src="../assets/images/banner1.png" alt="">
-          </a>
-        </mt-swipe-item>
-        <mt-swipe-item>
-          <a href="#">
-            <img src="../assets/images/banner1.png" alt="">
-          </a>
-        </mt-swipe-item>
       </mt-swipe>
     </div>
 
@@ -29,7 +29,19 @@
         <i class="icon icon-recommend"></i> 推荐套餐
       </h1>
       <ul class="combo-list">
-        <li>
+        <li v-for="(combo, index) in combos" :key="index">
+          <div class="img">
+            <img :src="combo.goods_thumb" :alt="combo.goods_name">
+          </div>
+          <div class="info clearfix">
+            <div class="text">{{combo.goods_name}} 提供免费wifi</div>
+            <div class="price">
+              <strong>￥{{combo.shop_price}}</strong>
+              <a class="buy" href="#">马上抢购</a>
+            </div>
+          </div>
+        </li>
+        <!-- <li>
           <div class="img">
             <img src="../assets/images/taocan1.png" alt="">
           </div>
@@ -52,7 +64,7 @@
               <a class="buy" href="#">马上抢购</a>
             </div>
           </div>
-        </li>
+        </li> -->
       </ul>
     </div>
 
@@ -62,7 +74,18 @@
         <i class="icon icon-recommend"></i> 推荐菜品
       </h1>
       <ul class="ingredient-list clearfix">
-        <li>
+        <li v-for="(ingredient, index) in ingredients" :key="index">
+          <div class="img">
+            <img :src="ingredient.goods_thumb" :alt="ingredient.goods_name">
+          </div>
+          <div class="info clearfix">
+            <div class="text">{{ingredient.goods_name}}</div>
+            <div class="price">
+              <strong>￥{{ingredient.shop_price}}</strong>
+            </div>
+          </div>
+        </li>
+        <!-- <li>
           <div class="img">
             <img src="../assets/images/caipin1.png" alt="">
           </div>
@@ -105,7 +128,7 @@
               <strong>￥68</strong>
             </div>
           </div>
-        </li>
+        </li> -->
       </ul>
     </div>
 
@@ -129,11 +152,42 @@ export default {
   name: "index",
   data() {
     return {
-      ads: [],
-      selected: this.$route.name
+      selected: this.$route.name,
+      banners: [],
+      combos: [],
+      ingredients: []
     };
   },
   created() {
+    this.getinfo()
+  },
+  methods: {
+    getinfo: function(){
+      var form = {
+        app_id: this.$appId,
+        nonce: this.$mobile.getRandom(0, 1000000) + '',
+        method: 'v3.home.index'
+      }
+      form.sign = this.$mobile.mysign(form);
+      this.$http.post(this.$ajaxurl, form)
+        .then(response => {
+          console.log(response.data)
+          if (response.data.status) {
+            this.banners = response.data.data.banners
+            this.combos = response.data.data.f1.goods
+            this.ingredients = response.data.data.f0.goods
+          } else {
+            Toast({
+              message: response.data.msg,
+              position: 'bottom',
+              duration: 2000
+            });
+          }
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    }
   }
 };
 </script>
@@ -221,6 +275,7 @@ h1.title{
       line-height: 0;
       img{
         width: 100%;
+        min-height: 128px;
       }
     }
     .info{

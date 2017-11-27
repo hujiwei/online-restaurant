@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import login from '@/components/login'
 import index from '@/components/index'
 import ordering from '@/components/ordering'
 import cart from '@/components/cart'
@@ -22,6 +23,11 @@ export default new Router({
     {
       path: '/',
       redirect: '/index'
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: login
     },
     {
       path: '/ordering',

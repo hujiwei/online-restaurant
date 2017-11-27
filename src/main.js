@@ -7,9 +7,13 @@ import axios from 'axios'
 import App from './App'
 import router from './router'
 import './assets/scss/common.scss'
+import {$$, url, app_id} from './assets/js/common.js';
 
 Vue.use(MintUI)
 Vue.prototype.$http = axios
+Vue.prototype.$appId = app_id
+Vue.prototype.$ajaxurl = url
+Vue.prototype.$mobile = $$
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

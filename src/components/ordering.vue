@@ -80,6 +80,12 @@ export default {
         time: ''
       },
     }
+  },
+  created () {
+    if(!!localStorage.getItem('user_id')){
+    }else{
+      this.$router.push('/login')
+    }
   }
 }
 </script>
