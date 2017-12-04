@@ -10,16 +10,6 @@
             <img :src="banner.ad_file" :alt="banner.ad_name">
           </a>
         </mt-swipe-item>
-        <!-- <mt-swipe-item>
-          <a href="#">
-            <img src="../assets/images/banner1.png" alt="">
-          </a>
-        </mt-swipe-item>
-        <mt-swipe-item>
-          <a href="#">
-            <img src="../assets/images/banner1.png" alt="">
-          </a>
-        </mt-swipe-item> -->
       </mt-swipe>
     </div>
 
@@ -41,30 +31,6 @@
             </div>
           </div>
         </li>
-        <!-- <li>
-          <div class="img">
-            <img src="../assets/images/taocan1.png" alt="">
-          </div>
-          <div class="info clearfix">
-            <div class="text">3-5人套餐提供免费wifi</div>
-            <div class="price">
-              <strong>￥98</strong>
-              <a class="buy" href="#">马上抢购</a>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="img">
-            <img src="../assets/images/taocan2.png" alt="">
-          </div>
-          <div class="info clearfix">
-            <div class="text">2-3人套餐提供免费wifi</div>
-            <div class="price">
-              <strong>￥68</strong>
-              <a class="buy" href="#">马上抢购</a>
-            </div>
-          </div>
-        </li> -->
       </ul>
     </div>
 
@@ -85,50 +51,6 @@
             </div>
           </div>
         </li>
-        <!-- <li>
-          <div class="img">
-            <img src="../assets/images/caipin1.png" alt="">
-          </div>
-          <div class="info clearfix">
-            <div class="text">蟹饺</div>
-            <div class="price">
-              <strong>￥98</strong>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="img">
-            <img src="../assets/images/caipin2.png" alt="">
-          </div>
-          <div class="info clearfix">
-            <div class="text">精品羊肉</div>
-            <div class="price">
-              <strong>￥68</strong>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="img">
-            <img src="../assets/images/caipin3.png" alt="">
-          </div>
-          <div class="info clearfix">
-            <div class="text">羊肚</div>
-            <div class="price">
-              <strong>￥68</strong>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="img">
-            <img src="../assets/images/caipin4.png" alt="">
-          </div>
-          <div class="info clearfix">
-            <div class="text">蔬菜拼盘</div>
-            <div class="price">
-              <strong>￥68</strong>
-            </div>
-          </div>
-        </li> -->
       </ul>
     </div>
 
@@ -148,6 +70,7 @@
 </template>
 
 <script>
+import { Toast, MessageBox, Indicator } from 'mint-ui';
 export default {
   name: "index",
   data() {
@@ -169,9 +92,10 @@ export default {
         method: 'v3.home.index'
       }
       form.sign = this.$mobile.mysign(form);
+      Indicator.open()
       this.$http.post(this.$ajaxurl, form)
         .then(response => {
-          console.log(response.data)
+          Indicator.close()
           if (response.data.status) {
             this.banners = response.data.data.banners
             this.combos = response.data.data.f1.goods

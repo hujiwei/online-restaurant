@@ -8,7 +8,7 @@
         <img src="../assets/images/avatar.png" alt="">
       </div>
       <div class="info">
-        <div class="username">张先生</div>
+        <div class="username">张先生 <span>余额:￥10</span></div>
         <div class="userphone">18638038000</div>
       </div>
     </div>
@@ -87,6 +87,10 @@ export default {
     line-height: 30px;
     font-size: 16px;
     color: #000;
+    .username span{
+      color: #FFD006;
+      margin-left: 10px;
+    }
   }
 }
 .btn-wrap{

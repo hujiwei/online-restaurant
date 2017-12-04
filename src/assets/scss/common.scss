@@ -75,32 +75,32 @@ p {
     height: 20px;
     background-position: 0 -100px;
   }
-  &.icon-guodi{
+  &.icon-cartIcon1{
     width: 30px;
     height: 30px;
     background-position: -80px -120px;
   }
-  &.icon-zhaopai{
+  &.icon-cartIcon2{
     width: 30px;
     height: 30px;
     background-position: -120px -120px;
   }
-  &.icon-huncai{
+  &.icon-cartIcon3{
     width: 30px;
     height: 30px;
     background-position: -160px -120px;
   }
-  &.icon-sucai{
+  &.icon-cartIcon4{
     width: 30px;
     height: 30px;
     background-position: -200px -120px;
   }
-  &.icon-jiuyin{
+  &.icon-cartIcon5{
     width: 30px;
     height: 30px;
     background-position: -240px -120px;
   }
-  &.icon-qita{
+  &.icon-cartIcon6{
     width: 30px;
     height: 30px;
     background-position: -280px -120px;
@@ -113,12 +113,12 @@ p {
   &.icon-alipay{
     width: 40px;
     height: 40px;
-    background-position: -160px 0;
+    background-position: -200px 0;
   }
   &.icon-weixinpay{
     width: 40px;
     height: 40px;
-    background-position: -200px 0;
+    background-position: -160px 0;
   }
   &.icon-weibo{
     width: 30px;
@@ -129,6 +129,21 @@ p {
     width: 30px;
     height: 30px;
     background-position: -120px -160px;
+  }
+  &.icon-cart-add{
+    width: 20px;
+    height: 20px;
+    background-position: -40px -100px;
+  }
+  &.icon-cart-minus{
+    width: 20px;
+    height: 20px;
+    background-position: -60px -100px;
+  }
+  &.icon-clear{
+    width: 20px;
+    height: 20px;
+    background-position: -120px -100px;
   }
 }
 .mint-header{
@@ -197,4 +212,68 @@ p {
   .mint-field-other{
     right: -10px;
   }
+}
+
+@-webkit-keyframes mymove{
+  0%   { -webkit-transform: scale(1) }
+  25%  { -webkit-transform: scale(.8) }
+  50%  { -webkit-transform: scale(1.1) }
+  75%  { -webkit-transform: scale(.9) }
+  100% { -webkit-transform: scale(1) }
+}
+@keyframes mymove{
+  0%   { transform: scale(1) }
+  25%  { transform: scale(.8) }
+  50%  { transform: scale(1.1) }
+  75%  { transform: scale(.9) }
+  100% { transform: scale(1) }
+}
+/* 购物车弹弹弹 */
+.tantantan{
+ -webkit-animation:mymove 1s;
+ animation:mymove 1s;
+}
+/* 修正版抛球效果所需CSS */
+.flyball {
+ position:fixed;
+ top:0;
+ left:0;
+ -webkit-transition:-webkit-transform .5s linear;
+ transition:-webkit-transform .5s linear;
+ transition:transform .5s linear;
+ transition:transform .5s linear, -webkit-transform .5s linear
+}
+.flyball .inner {
+ position:absolute;
+ top:0;
+ left:0;
+ background-color:#FFD006;
+ border-radius:50%
+}
+.flyball, .flyball .inner {
+ will-change:transform;/* css3自带的开启GPU加速 */
+ -webkit-transform:translateZ(0);
+ transform:translateZ(0)
+}
+.flyball .inner {
+ -webkit-transition:-webkit-transform .5s cubic-bezier(.3, -.2, 1, 0);
+ transition:-webkit-transform .5s cubic-bezier(.3, -.2, 1, 0);
+ transition:transform .5s cubic-bezier(.3, -.2, 1, 0);
+ transition:transform .5s cubic-bezier(.3, -.2, 1, 0), -webkit-transform .5s cubic-bezier(.3, -.2, 1, 0)
+}
+/* 父盒子的样式 */
+.father{
+ width: 20px;
+ height: 20px;
+ position: fixed;
+ z-index: 999;
+}
+/* 子盒子（小球）的样式 */
+.child{
+ width: 20px;
+ height: 20px;
+ background: #FFD006;
+ position: absolute;
+ top: 0;
+ left: 0;
 }

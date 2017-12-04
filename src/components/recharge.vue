@@ -9,6 +9,7 @@
     <div class="user-info">
       <div class="username">会员姓名：张先生</div>
       <div class="userphone">会员手机：18638038000</div>
+      <div class="balance">当前余额：￥10</div>
     </div>
 
     <!-- 充值表单 -->

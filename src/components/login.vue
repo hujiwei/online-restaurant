@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { Toast, MessageBox } from 'mint-ui';
+import { Toast, MessageBox, Indicator } from 'mint-ui';
 export default {
   name: 'login',
   data () {
@@ -64,8 +64,10 @@ export default {
         mobile_phone: this.phone
       }
       form.sign = this.$mobile.mysign(form);
+      Indicator.open()
       this.$http.post(this.$ajaxurl, form)
         .then(response => {
+          Indicator.close()
           if (response.data.status) {
             Toast({
               message: '发送成功',
@@ -109,8 +111,10 @@ export default {
         code: this.verifynCode
       }
       form.sign = this.$mobile.mysign(form);
+      Indicator.open()
       this.$http.post(this.$ajaxurl, form)
         .then(response => {
+          Indicator.close()
           Toast({
             message: response.data.msg,
             position: 'bottom',
