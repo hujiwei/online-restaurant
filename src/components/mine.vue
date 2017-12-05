@@ -5,11 +5,11 @@
     <!-- 会员信息 -->
     <div class="user-info clearfix">
       <div class="avatar">
-        <img src="../assets/images/avatar.png" alt="">
+        <img :src="headimg" alt="">
       </div>
       <div class="info">
-        <div class="username">张先生 <span>余额:￥10</span></div>
-        <div class="userphone">18638038000</div>
+        <div class="username">{{user_name}} <span>余额:￥{{user_money}}</span></div>
+        <div class="userphone">{{mobile_phone}}</div>
       </div>
     </div>
 
@@ -46,7 +46,11 @@ export default {
   name: 'mine',
   data () {
     return {
-      selected: this.$route.name
+      selected: this.$route.name,
+      user_name: localStorage.getItem('user_name'),
+      user_money: localStorage.getItem('user_money'),
+      mobile_phone: localStorage.getItem('mobile_phone'),
+      headimg: !!localStorage.getItem('headimg')?localStorage.getItem('headimg'):'http://oyu1eujxa.bkt.clouddn.com/static/img/avatar.e934bab.png'
     }
   },
   created () {
@@ -68,11 +72,11 @@ export default {
 
 <style lang="scss" scoped>
 .mine{
-  padding: 40px 0 78px;
+  padding: 40px 0 73px;
   background-color: #fff;
 }
 .user-info{
-  padding: 20px;
+  padding: 15px;
   .avatar{
     width: 80px;
     float: left;

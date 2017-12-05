@@ -98,8 +98,8 @@ export default {
           Indicator.close()
           if (response.data.status) {
             this.banners = response.data.data.banners
-            this.combos = response.data.data.f1.goods
-            this.ingredients = response.data.data.f0.goods
+            this.combos = response.data.data.f1
+            this.ingredients = response.data.data.f2
           } else {
             Toast({
               message: response.data.msg,
@@ -118,7 +118,7 @@ export default {
 
 <style lang="scss" scoped>
 .index{
-  padding: 40px 0 78px;
+  padding: 40px 0 73px;
 }
 .swipe {
   height: 36vh;

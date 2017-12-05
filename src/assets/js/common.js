@@ -34,6 +34,14 @@ $$.prototype = {
     var tt = new Date(parseInt(tm) * 1000).toLocaleString().replace(/年|月/g, "-").replace(/日/g, " ")
     return tt;
   },
+  isWeiXin: function() {
+    let ua = window.navigator.userAgent.toLowerCase();
+    if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+      return true;
+    } else {
+      return false;
+    }
+  },
   md5: function(hex_md5) {
 
     //以下是md5算法 不用理解拿来用就行

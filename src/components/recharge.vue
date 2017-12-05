@@ -7,9 +7,9 @@
     </mt-header>
 
     <div class="user-info">
-      <div class="username">会员姓名：张先生</div>
-      <div class="userphone">会员手机：18638038000</div>
-      <div class="balance">当前余额：￥10</div>
+      <div class="username">会员姓名：{{user_name}}</div>
+      <div class="userphone">会员手机：{{mobile_phone}}</div>
+      <div class="balance">当前余额：￥{{user_money}}</div>
     </div>
 
     <!-- 充值表单 -->
@@ -69,7 +69,9 @@ export default {
   name: 'recharge',
   data () {
     return {
-      selected: this.$route.name,
+      user_name: localStorage.getItem('user_name'),
+      user_money: localStorage.getItem('user_money'),
+      mobile_phone: localStorage.getItem('mobile_phone'),
       money: '',
       payType: ''
     }

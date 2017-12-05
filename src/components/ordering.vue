@@ -225,7 +225,7 @@ export default {
 
 <style lang="scss" scoped>
 .ordering{
-  padding: 40px 0 78px;
+  padding: 40px 0 73px;
   background-color: #fff;
 }
 .ordering-form{

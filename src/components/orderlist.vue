@@ -9,8 +9,8 @@
     <!-- 订单列表 -->
     <div class="order-list">
       <ul>
-        <li>
-          <div class="time">2017-11-06 11:20</div>
+        <li v-for="(order, index) in orderlist" :key="index">
+          <div class="time">{{order.update_time}}</div>
           <div class="info">智慧餐厅 到店点餐</div>
           <div class="cost">消费 <strong>￥198</strong></div>
           <div class="status">下单成功</div>
@@ -21,11 +21,46 @@
 </template>
 
 <script>
+import { Toast, MessageBox, Indicator } from 'mint-ui';
 export default {
   name: 'orderlist',
   data () {
     return {
-      selected: this.$route.name
+      orderlist: []
+    }
+  },
+  created () {
+    // 
+  },
+  mounted () {
+    this.getorderlist()
+  },
+  methods: {
+    getorderlist(){
+      var form = {
+        app_id: this.$appId,
+        nonce: this.$mobile.getRandom(0, 1000000) + '',
+        method: 'v3.user.torder',
+        user_id: localStorage.getItem('user_id')
+      }
+      form.sign = this.$mobile.mysign(form);
+      Indicator.open()
+      this.$http.post(this.$ajaxurl, form)
+        .then(response => {
+          Indicator.close()
+          if (response.data.status) {
+            this.orderlist = response.data.data
+          } else {
+            Toast({
+              message: response.data.msg,
+              position: 'bottom',
+              duration: 2000
+            });
+          }
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
     }
   }
 }

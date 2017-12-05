@@ -10,6 +10,7 @@ import recharge from '@/components/recharge'
 import orderlist from '@/components/orderlist'
 import order from '@/components/order'
 import about from '@/components/about'
+import wxlogin from '@/components/wxlogin'
 
 Vue.use(Router)
 
@@ -68,6 +69,11 @@ export default new Router({
       path: '/about',
       name: 'about',
       component: about
+    },
+    {
+      path: '/wxlogin',
+      name: 'wxlogin',
+      component: wxlogin
     },
   ]
 })

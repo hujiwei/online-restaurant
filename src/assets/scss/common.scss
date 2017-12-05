@@ -51,19 +51,19 @@ p {
   background: url(../images/icon.png) no-repeat;
   background-size: 400px 400px;
   &.icon-home {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     background-position: 0 0;
   }
   &.icon-ordering {
-    width: 50px;
-    height: 50px;
-    background-position: -50px 0;
+    width: 40px;
+    height: 40px;
+    background-position: -40px 0;
   }
   &.icon-mine {
-    width: 50px;
-    height: 50px;
-    background-position: -100px 0;
+    width: 40px;
+    height: 40px;
+    background-position: -80px 0;
   }
   &.icon-recommend{
     width: 30px;
@@ -108,27 +108,27 @@ p {
   &.icon-cart{
     width: 30px;
     height: 30px;
-    background-position: -40px -160px;
+    background-position: 0 -160px;
   }
   &.icon-alipay{
     width: 40px;
     height: 40px;
-    background-position: -200px 0;
+    background-position: -160px 0;
   }
   &.icon-weixinpay{
     width: 40px;
     height: 40px;
-    background-position: -160px 0;
+    background-position: -120px 0;
   }
   &.icon-weibo{
     width: 30px;
     height: 30px;
-    background-position: -80px -160px;
+    background-position: -40px -160px;
   }
   &.icon-weixin{
     width: 30px;
     height: 30px;
-    background-position: -120px -160px;
+    background-position: -80px -160px;
   }
   &.icon-cart-add{
     width: 20px;
@@ -158,25 +158,26 @@ p {
   background-color: #EFEDEE;
   .mint-tab-item{
     .mint-tab-item-icon{
-      width: 50px;
-      height: 50px;
+      width: 40px;
+      height: 40px;
       margin: 0 auto;
     }
     &.is-selected{
       background: none;
       color: #ffc800;
       .icon-home {
-        background-position: 0 -50px;
+        background-position: 0 -40px;
       }
       .icon-ordering {
-        background-position: -50px -50px;
+        background-position: -40px -40px;
       }
       .icon-mine {
-        background-position: -100px -50px;
+        background-position: -80px -40px;
       }
     }
     .mint-tab-item-label{
       font-size: 14px;
+      margin-top: 5px;
       font-weight: bold;
     }
   }
@@ -198,7 +199,7 @@ p {
     font-size: 14px;
   }
 }
-.login{
+.login, .wxlogin{
   .mint-cell-wrapper{
     background: none;
   }
